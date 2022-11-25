@@ -1,0 +1,29 @@
+# 1) Import libraries
+import uvicorn
+from fastapi import FastAPI
+
+# 2) Create the app object
+app = FastAPI()
+
+
+# 3) Index route, opens automatically on http://127.0.0.1:8000
+@app.get("/")
+def index():
+    return {'message': 'Hello to whoever is reading this!'}
+
+
+# 4) Route with a single parameter, returns the parameter within a message located at http://127.0.0.1:8000/<Name>
+@app.get("/Welcome")
+def get_name(name: str):
+    return {"Welcome to Aryan's FastAPI tutorial program": f'{name}'}
+
+
+# 5) Run the API with uvicorn on http://127.0.0.1:8000
+if __name__ == '__main__':
+    uvicorn.run(app, host='127.0.0.1', port=8000)
+
+# 6) Run the following uvicorn command in the command prompt
+# uvicorn main:app --reload
+
+# Add /docs or /redoc to the end of http://127.0.0.1:8000 to access the /welcome section without a HTML frontend
+# /docs uses SwaggerUI while /redoc uses ReDoc
