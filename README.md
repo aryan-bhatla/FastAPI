@@ -1,1 +1,1 @@
-Learning the basics of FastAPI and deploying a basic machine learning model using FastAPI
+Learning the basics of FastAPI and deploying a simple machine learning classifier model using FastAPI
